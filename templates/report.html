@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center  bg-white p-3 rounded-5 mt-4">
+                <div>
+                    <div class="text-center fs-2 text-secondary">Health-Check Report</div>
+                    <!-- Organization Level -->
+                    <!-- <div class="mt-4">{{table_licenses|safe}}</div>
+                    <div>{{table_templates|safe }}</div>
+                    <div>{{table_snmp|safe}}</div>
+
+                    <div></div>
+                    <div>{{table_firmware|safe}}</div>
+                    <div></div>
+                    <div>{{table_channelUtil|safe}}</div>
+                    -->
+                    <div class="mt-2">
+                        <p >
+                            <div class="fst-italic">
+                                This file includes the sections below:
+                            </div>
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <ul>
+                                <div class="accordion-item mt-2">
+                                    <h2 class="accordion-header">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Organization Level
+                                      </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                        <ol>
+                                            <li>Licensing details</li>
+                                            <li>Templates details</li>
+                                            <li>SNMP</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" >
+                                            Network Level
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                        <ol>
+                                            <li>Devices</li>
+                                            <ul>
+                                                <li>Network Devices</li>
+                                                <li>Firmware Version</li>
+                                            </ul>
+                                            <li>Alerts</li>
+                                            <ul>
+                                                <li>Network deault alerts</li>
+                                                <li>Network individual alerts</li>
+                                            </ul>
+                                            <li>MS info</li>
+                                            <ul>
+                                                <li>Port info</li>
+                                                <li>Port statuses</li>
+                                                <li>Switch stacks</li>
+                                                <li>MTU</li>
+                                            </ul>
+                                            <li>MX info</li>
+                                            <ul>
+                                                <li>Deployment Mode</li>
+                                                <li>VLANS</li>
+                                                <li>L3 firewall rules</li>
+                                                <li>Warmspare</li>
+                                            </ul>
+                                            <li>BGP</li>
+                                            <ul>
+                                                <li>BGP info</li>
+                                                <li>Hub BGP neighbors</li>
+                                            </ul>
+                                            <li>Site-to-Site VPN</li>
+                                            <ul>
+                                                <li>VPN mode</li>
+                                                <li>VPN subnets</li>
+                                                <li>Hubs configured</li>
+                                            </ul>
+                                            <li>MR info</li>
+                                            <ul>
+                                                <li>SSIDs</li>
+                                                <li>RF profiles</li>
+                                            </ul>
+                                            <li>Channel Utilization</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                </ul>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="text-center mt-3">
+                            <button type="button" class="btn btn-success" onclick="window.location.href='{{ url_for( 'download_report') }}';" > Generate report </button>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}

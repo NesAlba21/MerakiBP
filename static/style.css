@@ -1,0 +1,84 @@
+/* Modify the background color */
+.navbar-custom {
+    background-color: white;
+}
+
+.merakiGreen-bar{
+    background-color:#7BB86B;
+    padding: .5rem 0;
+    width:100%;
+    border: 1px solid #7BB86B;
+    border-width: 1px 0 0;
+    text-align: left;
+    height:1rem;
+}
+.textGreen{
+    color: #5AA646
+}
+
+/* logo */
+img {
+  max-width: 100px;
+  width: auto;
+  height: auto;
+}
+/* list */
+ul{
+    list-style: none;
+}
+
+#idx {
+  padding: 10px;
+  max-width: 200px;
+  width: auto;
+  height: auto;
+  position: relative;
+  top:15px;
+}
+
+/* Button */
+.btn-success{
+    border-radius: 32px !important;
+    border: 2px solid !important;
+    padding: 10px !important;
+    font-weight: 500;
+    border-color: #7BB86B !important;
+    line-height: 17px !important;
+    letter-spacing: 0.28px !important;
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #7BB86B;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #5AA646;
+    --bs-btn-hover-border-color: #5AA646;
+}
+
+#api{
+    position:relative;
+    right: 1px;
+    top:12px;
+    font-style: italic;
+    font-size: 10px;
+    font-color: Red
+}
+
+.prompt{
+    border-radius: 6px !important;
+}
+
+#org{
+   color:#5aa646;
+   accent-color: #5aa646;
+   font-size: 14px
+}
+ li{
+    color:#333333
+ }
+
+#networks{
+   color:#5aa646;
+   accent-color: #5aa646;
+}
+
+.content{
+    padding-left:1rem;
+}

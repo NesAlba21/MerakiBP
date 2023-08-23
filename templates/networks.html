@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="containter">
+    <div class="d-flex justify-content-center align-items-center mt-3">
+            <div class="d-flex justify-content-center  bg-white p-3 rounded-5 ">
+                <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center">
+                        <form method="post">
+                            <div class="d-flex justify-content-center fs-1 text-secondary ">Networks</div>
+                            {{ form.hidden_tag() }}
+                            <div class="mt-4">{{ form.networks.label }}</div>
+                            <div  class="text-left  bg-body-tertiary p-3 rounded-5 mt-2">
+                                {{ form.networks }}
+                            </div>
+                            <div class="mt-3">{{ form.submit() }}</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
