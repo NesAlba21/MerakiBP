@@ -1,4 +1,7 @@
 # MerakiBP
 
-For Web interface run app.py
-For Python run Meraki_HealthCheck.py
+## Web Interface
+Run app.py
+
+#Python
+Run Meraki_HealthCheck.py
