@@ -104,29 +104,7 @@ def report():
         return render_template('report.html')
     else:
         return redirect(url_for('logout'))
-    """
-    api = session['api']
-    network_id = session['networks']
-    orgId = session['orgs']
 
-    table_snmp = getSnmp(api, orgId)
-    table_snmp = table_snmp.get_html_string(attributes={"class":"table table-sm table-striped table-bordered"})
-
-    table_licenses = getLicence(api, orgId)
-    table_licenses = table_licenses.get_html_string(attributes={"class":"table table-sm table-striped table-bordered"})
-
-    table_templates = getTemplate(api, orgId)
-    table_templates = table_templates.get_html_string(attributes={"class":"table table-sm table-striped table-bordered"})
-
-    table_firmware = firmware(api, network_id)
-    table_firmware = table_firmware.get_html_string(attributes={"class":"table table-sm table-striped table-bordered"})
-
-    table_channelUtil = getChannelUtil(api, network_id)
-    table_channelUtil = table_channelUtil.get_html_string(attributes={"class":"table table-sm table-striped table-bordered"})
-
-    Add this in render_template if you want to add the output
-    (table_snmp=table_snmp, table_licenses=table_licenses, table_templates=table_templates, table_channelUtil=table_channelUtil, table_firmware=table_firmware)
-    """
 
 @app.route('/download', methods=['GET','POST'])
 def download_report():
