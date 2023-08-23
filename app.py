@@ -5,29 +5,8 @@ from flask import Flask, render_template, flash, url_for, session, redirect, sen
 from flask_wtf import FlaskForm
 from wtforms import RadioField, StringField, SubmitField
 from wtforms.validators import DataRequired
-from docx import Document
-from docx.shared import Pt
 import os
 
-
-from GET_Templates import getTemplate
-from GET_firmware import firmware
-from GET_License import getLicence
-from Get_WarmSpare import getWarmSpare
-from GET_AlertsNetwork import getAlertsNetwork
-from GET_NetworkDevices import getNetworkDevicesWeb
-from Get_SwitchStacksNetwork import getSwitchStack
-from GET_MS_mtu import mtu
-from GET_MsDetails import getMsDetail
-from GET_VpnBgp import getVpnBgp
-from GET_Site2Site_VPN import getNetworkVpn
-from GET_MxSetting import  getMxSettings
-from GET_MxVlans import getNetMxVlan
-from GET_snmp import getSnmp
-from GET_Ssid import getSsid
-from GET_rfProfiles import get_rfProfiles
-from GET_l3Fw import getl3Fw
-from GET_channelUtil import getChannelUtil
 from MerakiHealthCheckWeb import create_document
 
 app = Flask(__name__)
