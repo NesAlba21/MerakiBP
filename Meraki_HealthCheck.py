@@ -1,5 +1,6 @@
 from docx import Document
 from docx.shared import Pt
+from docxcompose.composer import Composer
 from MerakiAPI import apiInit
 from GET_orgs import getOrgs
 from GET_NetworksBind import getNetworksBind
@@ -25,11 +26,11 @@ from GET_channelUtil import getChannelUtil
 api = apiInit()
 # Put the output in a Word document using python-docx"""
 # Create Document
-document = Document()
+document = Document("CiscoTemplate.docx")
 style = document.styles['Normal']
 font = style.font
 font.name = 'Arial'
-font.size = Pt(8)
+font.size = Pt(10)
 
 
 
@@ -46,7 +47,7 @@ def addSection(table):
     # Add a table to the document
     rows = len(table._rows)+1
     cols = len(table.field_names)
-    table_word = document.add_table(rows=rows, cols=cols, style='Light List Accent 1')
+    table_word = document.add_table(rows=rows, cols=cols, style='Cisco CX Table | Default')
 
 
 
@@ -197,5 +198,17 @@ document.add_page_break()
 
 # Save the document
 document.save('Meraki Health Check.docx')
+
+document2 = Document("CiscoTemplateEnd.docx")
+#name of the file you want to merge the docx file into
+document = Document("Meraki Health Check.docx")
+document = Composer(document)
+#name of the second docx file
+document2 = Document("CiscoTemplateEnd.docx")
+#append the doc2 into the master using append function
+document.append(document2)
+#Save the combined docx with a name
+document.save("Meraki Health Check.docx")
+
 print("")
 print("Document successfully created!")

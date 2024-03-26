@@ -82,3 +82,16 @@ ul{
 .content{
     padding-left:1rem;
 }
+
+/* Custom styles for radio buttons */
+.custom-radio .form-check-input:checked + .form-check-label::before {
+    background-color: #7BB86B !important; /* Change this to your desired color */
+    border-color: #5AA646 !important; /* Change this to your desired color */
+}
+
+
+
+/* Custom styles for search input */
+#searchInput {
+    /* Add your custom styles for search input if needed */
+}

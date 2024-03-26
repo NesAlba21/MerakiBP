@@ -5,15 +5,17 @@
             <div class="d-flex justify-content-center  bg-white p-4 rounded-5 w-auto" >
                 <div class="d-flex justify-content-center">
                     <div class="d-flex justify-content-center">
-                        <form method="post">
-                            <div class="d-flex justify-content-center fs-1 text-secondary ">Organizations</div>
-                            {{ form.hidden_tag() }}
-                            <div class="mt-4">{{ form.org.label }}</div>
-                            <div class="text-left  bg-body-tertiary p-3 rounded-5 mt-2" >
-                                {{ form.org }}
-                            </div>
-                            <div class="mt-3">{{ form.submit() }}</div>
-                        </form>
+                        <div class = "row">
+                            <form method="post">
+                                <div class="d-flex justify-content-center fs-1 text-secondary ">Organizations</div>
+                                {{ form.hidden_tag() }}
+                                <div class="row mt-4">{{ form.org.label }}</div>
+                                <div class="text-left  bg-body-tertiary p-3 rounded-5 mt-2" >
+                                    {{ form.org }}
+                                </div>
+                                <div class="mt-3">{{ form.submit() }}</div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 from docx import Document
 from docx.shared import Pt
+from docxcompose.composer import Composer
 
 from GET_Templates import getTemplate
 from GET_firmware import firmware
@@ -19,18 +20,19 @@ from GET_Ssid import getSsid
 from GET_rfProfiles import get_rfProfiles
 from GET_l3Fw import getl3Fw
 from GET_channelUtil import getChannelUtil
+from GET_Network_Events import getNetworkEvents
 
 # Put the output in a Word document using python-docx"""
 def create_document(api, orgId, network_id):
     # Document
-    document = Document()
+    document = Document("CiscoTemplate.docx")
     style = document.styles['Normal']
     font = style.font
     font.name = 'Arial'
-    font.size = Pt(8)
+    font.size = Pt(10)
 
     # Add Title
-    document.add_heading('Meraki Health Check', 0)
+    #document.add_heading('Meraki Health Check', 0)
     document.add_paragraph(' ')
 
     def addSection(table):
@@ -41,7 +43,7 @@ def create_document(api, orgId, network_id):
         # Add a table to the document
         rows = len(table._rows) + 1
         cols = len(table.field_names)
-        table_word = document.add_table(rows=rows, cols=cols, style='Light List Accent 1')
+        table_word = document.add_table(rows=rows, cols=cols, style='Cisco CX Table | Default')
 
         # Add header row to the table
         for i, field in enumerate(table.field_names):
@@ -79,6 +81,11 @@ def create_document(api, orgId, network_id):
     # Network Devices
     list_serial, table = getNetworkDevicesWeb(api, network_id)
     description = "Below you can find the devices list  in a network "
+    addSection(table)
+
+    # Network Events
+    table = getNetworkEvents(api,network_id)
+    description = "Below you can fin the top 10 events find in your network"
     addSection(table)
 
     # Firmware
@@ -177,4 +184,18 @@ def create_document(api, orgId, network_id):
     document.add_page_break()
 
     # Save the document
-    document.save('Meraki Health Check.docx')
+    document.save('Meraki Health Check_Pre.docx')
+
+    document2 = Document("CiscoTemplateEnd.docx")
+    # name of the file you want to merge the docx file into
+    document = Document("Meraki Health Check_Pre.docx")
+    document = Composer(document)
+    # name of the second docx file
+    document2 = Document("CiscoTemplateEnd.docx")
+    # append the doc2 into the master using append function
+    document.append(document2)
+    # Save the combined docx with a name
+    document.save("Meraki Health Check.docx")
+
+    print("")
+    print("Document successfully created!")

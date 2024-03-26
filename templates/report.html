@@ -5,16 +5,7 @@
             <div class="d-flex justify-content-center  bg-white p-3 rounded-5 mt-4">
                 <div>
                     <div class="text-center fs-2 text-secondary">Health-Check Report</div>
-                    <!-- Organization Level -->
-                    <!-- <div class="mt-4">{{table_licenses|safe}}</div>
-                    <div>{{table_templates|safe }}</div>
-                    <div>{{table_snmp|safe}}</div>
-
-                    <div></div>
-                    <div>{{table_firmware|safe}}</div>
-                    <div></div>
-                    <div>{{table_channelUtil|safe}}</div>
-                    -->
+                    <div class="text-center fs-4 text-secondary">"{{ Network_name }}"</div>
                     <div class="mt-2">
                         <p >
                             <div class="fst-italic">
@@ -92,11 +83,29 @@
                             </div>
                         </p>
                     </div>
+                    <!-- <div class="text-center mt-3">
+                            <button type="button" class="btn btn-success click" onclick="window.location.href='{{ url_for( 'download_report') }}';" > Generate report </button>
+                    </div>
+                    -->
                     <div class="text-center mt-3">
-                            <button type="button" class="btn btn-success" onclick="window.location.href='{{ url_for( 'download_report') }}';" > Generate report </button>
+                        <button id="generateReportBtn" type="button" class="btn btn-success click" onclick="generateReport();" >
+                            Generate report
+                        </button>
+                        <div id="spinner" class="spinner-border text-success d-none style="width: 3rem; height: 3rem;"" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
                     </div>
                 </div>
             </div>
     </div>
 </div>
+
+<script>
+
+  document.querySelector('.click').addEventListener('click', (e) => {
+  // Do whatever you want
+  e.target.textContent = '¡We are working on your report!';
+});
+
+</script>
 {% endblock %}
