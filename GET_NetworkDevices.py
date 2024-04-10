@@ -63,7 +63,8 @@ def getNetworkDevices(api, network_id, selected_option):
 
     # Put the info into a Pretty Table
     table = PrettyTable()
-    table.title = f"{selected_option['name']} Network Devices"
+    """table.title = f"{selected_option['name']} Network Devices" """
+    table.title = "Network Devices"
     table.field_names = ["Name", "Model", "Serial", "Mac", "Tags", "LAN Ip", "Wan1 Ip", "Wan2 Ip"]
     table.align["Name"] = "l"
     table.align["Model"] = "l"

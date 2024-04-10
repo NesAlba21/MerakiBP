@@ -1,6 +1,6 @@
 import meraki
 from prettytable import PrettyTable
-from flask import Flask, render_template, flash, url_for, session, redirect, send_file, render_template_string, request,  jsonify
+from flask import Flask, render_template, flash, url_for, session, redirect, send_file, after_this_request, request,  jsonify
 import time
 from threading import Thread
 from flask_wtf import FlaskForm
@@ -143,6 +143,8 @@ def download_report():
         #Download the doc
         p = 'Meraki Health Check.docx'
         return send_file(p, as_attachment=True)
+
+
     else:
         return redirect(url_for('logout'))
 

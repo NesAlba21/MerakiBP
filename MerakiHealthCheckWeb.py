@@ -21,6 +21,10 @@ from GET_rfProfiles import get_rfProfiles
 from GET_l3Fw import getl3Fw
 from GET_channelUtil import getChannelUtil
 from GET_Network_Events import getNetworkEvents
+from GET_Top_Ssid_by_Usage import get_top_ssid_by_usage
+from GET_TopDevices_by_Usage import get_top_devices_by_usage
+from Get_TopDevices_Model_by_Usage import get_top_devices_Model_by_usage
+from GET_Top_Sw_by_Energy_Usage import get_top_sw_by_energy_usage
 
 # Put the output in a Word document using python-docx"""
 def create_document(api, orgId, network_id):
@@ -73,6 +77,26 @@ def create_document(api, orgId, network_id):
     # SNMP
     table = getSnmp(api, orgId)
     description = ("Organization snmp settings")
+    addSection(table)
+
+    #Top 10 Devices by Usage
+    table = get_top_devices_by_usage(api, orgId)
+    description = ("Top 10 devices by usage in the Organization (one month data)")
+    addSection(table)
+
+    # Top 10 Devices Model by Usage
+    table = get_top_devices_Model_by_usage(api, orgId)
+    description = ("Top 10 devices Model by usage in the Organization (one month data)")
+    addSection(table)
+
+    # Top SSIDs by Usage
+    table = get_top_ssid_by_usage(api, orgId)
+    description = "Top SSIDs by Usage in the Organization (one month data)"
+    addSection(table)
+
+    # Top 10 SW by Energy Usage
+    table = get_top_sw_by_energy_usage(api, orgId)
+    description = ("Top 10 Switches by Energy usage in the Organization (one month data)")
     addSection(table)
 
     document.add_heading("Network Level", 1)
@@ -170,6 +194,8 @@ def create_document(api, orgId, network_id):
     table = getSsid(api, network_id)
     description = "List of SSIDs in the network"
     addSection(table)
+
+
 
     # RF profiles
     table = get_rfProfiles(api, network_id)
